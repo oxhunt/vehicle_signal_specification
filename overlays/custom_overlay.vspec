@@ -1,0 +1,24 @@
+# EXAMPLE
+# This is an example of a VSS overlay file that maps VSS signals to DBC signals.
+# The overlay file is used to customize the mapping between VSS and DBC for a specific
+# vehicle or experiment setup.
+# 
+#<VSS Signal name>:
+#  type: <VSS type>
+#  datatype: <VSS datatype>
+#  vss2dbc:
+#    signal: <DBC signal name>
+#    [transform: ...]
+#  dbc2vss:
+#    signal: <DBC signal name>
+#    [interval_ms: <interval in milliseconds>]
+#    [on_change: {true|false}]
+#    [transform: ...]
+#
+Vehicle.Speed:
+  type: sensor
+  datatype: float
+  description: Vehicle speed in km/h
+  dbc2vss:
+    signal: DI_uiSpeed
+    interval_ms: 5000
